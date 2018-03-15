@@ -9,8 +9,9 @@ int main()
     //int mat[16]= {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1};  //diagonal
     //int mat[16]= {1,1,1,1,0,1,1,1,0,0,1,1,0,0,0,1}; //triangular superior
     //int mat[16]= {1,1,0,0,1,1,1,0,0,1,1,1,0,0,1,1}; //tridiagonal
-    printf("Vetor Simples - 1, Vetor de Ponteiros 2\n\n ");
+    printf("\nVetor Simples - 1, Vetor de Ponteiros 2\n\n ");
     scanf("%d",&op);
+
     switch(op)
     {
       case 1:
