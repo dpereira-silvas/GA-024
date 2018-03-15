@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1520981568 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"L1Ex1.h"
+
+1520980565 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\l1ex1.h
+
+1520981829 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\l1ex1.c
+	<stdio.h>
+	<stdlib.h>
+	"L1Ex1.h"
+

@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1521135050 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mSimples.h"
+	"mPont.h"
+
+1521134634 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\msimples.h
+
+1521135342 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\msimples.c
+	<stdio.h>
+	<stdlib.h>
+	"mSimples.h"
+
+1521134540 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\mpont.h
+
+1521135098 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\l1ex1\mpont.c
+	<stdio.h>
+	<stdlib.h>
+	"mPont.h"
+
+1521135390 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\ga-024\l1ex1\msimples.c
+	<stdio.h>
+	<stdlib.h>
+	"mSimples.h"
+
+1521134634 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\ga-024\l1ex1\msimples.h
+
+1521145876 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\ga-024\l1ex1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mSimples.h"
+	"mPont.h"
+
+1521134540 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\ga-024\l1ex1\mpont.h
+
+1521135406 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\codigos\ga-024\l1ex1\mpont.c
+	<stdio.h>
+	<stdlib.h>
+	"mPont.h"
+
