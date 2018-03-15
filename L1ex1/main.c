@@ -5,7 +5,8 @@
 #include "mPont.h"
 int main()
 {
-    int op;
+    
+	int op;
     //int mat[16]= {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1};  //diagonal
     //int mat[16]= {1,1,1,1,0,1,1,1,0,0,1,1,0,0,0,1}; //triangular superior
     //int mat[16]= {1,1,0,0,1,1,1,0,0,1,1,1,0,0,1,1}; //tridiagonal
