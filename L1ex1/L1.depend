@@ -41,3 +41,19 @@
 	<stdlib.h>
 	"mPont.h"
 
+1521147639 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\l1ex1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"mSimples.h"
+	"mPont.h"
+
+1521147481 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\l1ex1\msimples.h
+
+1521147481 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\l1ex1\mpont.h
+
+1521147481 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\l1ex1\mpont.c
+	<stdio.h>
+	<stdlib.h>
+	"mPont.h"
+

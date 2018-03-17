@@ -4,18 +4,35 @@
 
 struct matrixS
 {
-  int m, n;
-  int *mat;
+    int m, n;
+    int *mat;
 
 };
 
 MatrixS* matrixS_create( int m, int n )
 {
     MatrixS* ma = (MatrixS*) malloc(sizeof(MatrixS));
-    ma->mat = (int*) malloc(m*n*sizeof(int));
 
-    ma->m=m;
-    ma->n=n;
+    if(ma == NULL)
+    {
+        printf("Memoria Innsuficiente\n\n");
+        return NULL;
+    }
+    else
+    {
+        ma->mat = (int*) malloc(m*n*sizeof(int));
+        if(ma->mat == NULL)
+        {
+        printf("Memoria Innsuficiente\n\n");
+            return NULL;
+        }
+        else
+        {
+            ma->m = m;
+            ma->n = n;
+        }
+
+    }
     return ma;
 }
 
@@ -52,15 +69,15 @@ int matrixS_getcolumncount( MatrixS* m )
 void matrixS_print( MatrixS* m )
 {
     int i,j, k;
-    k=0;
-    j=0;
-    for(i=0; i<matrixS_getlinecount( m )*matrixS_getcolumncount( m); i++)
+    k = 0;
+    j = 0;
+    for(i = 0; i < matrixS_getlinecount( m )*matrixS_getcolumncount( m); i++)
     {
-        if((i!=0) && (i%matrixS_getcolumncount( m) == 0))
+        if((i != 0) && (i%matrixS_getcolumncount( m) == 0))
         {
             printf("\n");
             k++;
-            j=0;
+            j = 0;
         }
         printf("%d ",matrixS_getelem( m, k, j ));
 
@@ -78,7 +95,7 @@ int matrixS_identidade(int* mat, int n)
     // para acessar o elemento da diagonal basta ir nos indeces i*n+i para i=0...n-1
     for(i = 0; i < n; i++)
     {
-        if(mat[i*n+i]!=1)
+        if(mat[i*n+i] != 1)
         {
             return 0;
         }
@@ -87,7 +104,7 @@ int matrixS_identidade(int* mat, int n)
     //verificando as outras entradas da matriz
 
     // indice para as colunas
-    j=1;
+    j = 1;
     for(i = 1; i < ((n*n) - 1); i++)
     {
         //pulando a diagonal
@@ -97,7 +114,7 @@ int matrixS_identidade(int* mat, int n)
             j++;
             continue;
         }
-        if(mat[i]!=0)
+        if(mat[i] != 0)
         {
             return 0;
         }
@@ -111,20 +128,20 @@ int matrixS_triangular_superior(int* mat, int n)
     int i,j,k;
 
     // indice da coluna
-    j=0;
-    for(i=1; i<n; i++)
+    j = 0;
+    for(i = 1; i < n; i++)
     {
         // Verifica o primeiro elemento de cada linha a partir da segunda
-        if(mat[i*n] !=0)
+        if(mat[i*n] != 0)
         {
             return 0;
         }
         // para a linha 3 Verifica 2 elementos depois do primeiro
         // para a linha 4 Verifica 3 elementos depois do primeiro
         // e assim sucessivamente
-        for(k=1; k<=j; k++)
+        for(k = 1; k <= j; k++)
         {
-            if(mat[i*n+k] !=0)
+            if(mat[i*n+k] != 0)
             {
                 return 0;
             }
@@ -148,17 +165,17 @@ int matrixS_tridiagonal(int* mat, int n)
         // se i for diferente de zero e multiplo de n
         // isso significa que chegamos ao final da linha,
         // portanto incrementamos k (indice da linha) e zeramos o j (indice da coluna)
-        if((i!=0) && (i%n == 0))
+        if((i != 0) && (i%n == 0))
         {
             k++;
-            j=0;
+            j = 0;
         }
         // condição para a matriz ser tridiagonal
         // k!=j   não está na diagonal principal
         // k!=j-1 não está na diagonal abaixo da principal
         // k!=j+1 não está na diagonal acima da principal
         // mat[k*n+j]!=0  o elemento que atende o 3 requisitos acima é diferente de zero
-        if((k!=j) && (k!=j-1) && (k!=j+1) && (mat[k*n+j]!=0))
+        if((k != j) && (k != j-1) && (k != j+1) && (mat[k*n+j] != 0))
         {
             return 0;
         }
@@ -192,8 +209,8 @@ float matrixS_soma_inferior(int* mat, int n)
     int i,j,k;
 
     // indice da coluna
-    j=0;
-    for(i=1; i<n; i++)
+    j = 0;
+    for(i = 1; i < n; i++)
     {
         // adiciona o primeiro elemento da segunda linha
         soma = soma + mat[i*n];
@@ -201,7 +218,7 @@ float matrixS_soma_inferior(int* mat, int n)
         // para a linha 3 adiciona 2 elementos
         // para a linha 4 adiciona 3 elementos
         // e assim sucessivamente
-        for(k=1; k<=j; k++)
+        for(k = 1; k <= j; k++)
         {
             soma = soma + mat[i*n+k];
         }
@@ -225,16 +242,16 @@ void matrixS_teste(void)
 
     MatrixS* mat = matrixS_create(dim,dim);
 
-    for(i = 0; i <matrixS_getlinecount(mat); i++)
+    for(i = 0; i < matrixS_getlinecount(mat); i++)
     {
-        for(j = 0; j <matrixS_getcolumncount( mat); j++)
+        for(j = 0; j < matrixS_getcolumncount( mat); j++)
         {
 
             // preenchimento manual
             //printf("Digite um numero: ");
-           // scanf("%d",&elem);
-           //matrixS_setelem( mat, i, j, elem);
-           //matrixP_setelem( mat, i, j, elem);
+            // scanf("%d",&elem);
+            //matrixS_setelem( mat, i, j, elem);
+            //matrixP_setelem( mat, i, j, elem);
 
             // preenchimento aleatorio
             matrixS_setelem( mat, i, j, rand() % 2);
@@ -266,6 +283,6 @@ void matrixS_teste(void)
         printf("\nNao e uma Matriz Tridiagonal\n\n");
 
     matrixS_destroy(mat);
-    mat=NULL;
+    mat = NULL;
 }
 
