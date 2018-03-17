@@ -1,8 +1,14 @@
 # depslib dependency file v1.0
-1521153930 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\exlistas\listaencadeada.c
+1521312605 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\exlistas\listaencadeada.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"listaEncadeada.h"
+
+1521263492 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\exlistas\listaencadeada.h
+
+1521312640 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\exlistas\main.c
 	<stdio.h>
 	<stdlib.h>
 	"listaEncadeada.h"
-
-1521153910 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\exlistas\listaencadeada.h
 
