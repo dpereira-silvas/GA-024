@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1522172326 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\listacircular\main.c
+	<stdio.h>
+	<stdlib.h>
+	"listaCircular.h"
+
+1522171626 f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\listacircular\listacircular.h
+
+1522172284 source:f:\diogo\dados\diogo\facul\mc\mestrado\estrutura de dados\listas\ga-024\ga-024\listacircular\listacircular.c
+	<stdio.h>
+	<stdlib.h>
+	"listaCircular.h"
+
