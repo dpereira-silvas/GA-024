@@ -94,7 +94,7 @@ void lista_print(Lista* l)
         printf("Lista com %d elementos\n",l->qtd);
         for(i = 0; i < l->qtd; i++)
         {
-            printf("No %d, info %d\n",i, aux->info);
+            printf("No %d - info %d\n",i, aux->info);
             aux = aux->next;
         }
     }
