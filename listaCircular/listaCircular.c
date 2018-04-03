@@ -61,22 +61,20 @@ Lista* lista_insert(Lista* l, int info)
       No* n =  lista_createNo();
       if(l->head == NULL)
       {
-          n->next = n;
+          n->next  = n;
           l->head  = n;
           l->tail  = n;
-          n->info = info;
+          n->info  = info;
       }
       else
       {
-          n->next = l->head;
+          n->next       = l->head;
           l->tail->next = n;
-          l->head  = n;
-          n->info = info;
+          //l->head  = n; // para inserir no inicio
+          l->tail       = n;   // para inserir no fim
+          n->info       = info;
       }
       l->qtd++;
-
-
-
     return l;
 }
 
@@ -92,7 +90,7 @@ void lista_print(Lista* l)
     else
     {
         printf("Lista com %d elementos\n",l->qtd);
-        for(i = 0; i < l->qtd; i++)
+        for(i = 0; i < 3*l->qtd; i++)
         {
             printf("No %d - info %d\n",i, aux->info);
             aux = aux->next;
