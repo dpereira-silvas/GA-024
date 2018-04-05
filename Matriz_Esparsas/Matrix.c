@@ -106,7 +106,7 @@ void lista_print(Matrix **m, int lines, int columms)
 {
     struct noM* aux = (*m)->head, *head;
     int i,j ;
-    printf(" head print %p\n", (*m)->head);
+    //printf(" head print %p\n", (*m)->head);
     printf("\n");
     if((*m) == NULL)
     {
@@ -158,44 +158,42 @@ int matrix_create( Matrix** m )
     (*m)->tail_line   = NULL;
     (*m)->tail_column = NULL;
 
-    lista_create_headers(m, 2, 2);
-    printf("%p %p %p \n",(*m)->head,(*m)->tail_line,(*m)->tail_column);
+    lista_create_headers(m, 3, 3);
+   // printf("%p %p %p \n",(*m)->head,(*m)->tail_line,(*m)->tail_column);
 return 0;
 }
 
 void lista_destroy(Matrix **m, int lines, int columms)
 {
-    struct noM* aux = (*m)->head, *aux2;
-    int i ;
-
+    struct noM* aux = (*m)->head,*aux2, *head;
+    int i,j ;
+    //printf(" head print %p\n", (*m)->head);
+    //printf("\n");
     if((*m) == NULL)
     {
         printf("Lista sem elementos\n\n");
     }
     else
-    {   aux = aux->next;
-        printf("Lista das Colunas\n");
-        for(i = 0; i < columms; i++)
-        {
-            //printf("No %d - info %f\n",i, aux->info);
-            aux2 = aux;
-            aux  = aux->next;
-            free(aux2);
-            printf("liberou %p\n",aux2);
-        }
-        printf("Lista das Linhas\n");
-        aux = (*m)->head->below;
-        for(i = 0; i < lines; i++)
-        {
-            //printf("No %d - info %f\n",i, aux->info);
-            aux2 = aux;
-            aux  = aux->below;
-            free(aux2);
-            printf("liberou %p\n",aux2);
+    {
+       head  = aux->below;
+       //head = aux;
+       for(i = 0; i <= lines; i++)
+       {
+           for(j = 0; j <= columms; j++)
+           {
+
+                aux2 = aux;
+                aux  = aux->next;
+                //printf("x = %d, y = %d, = info %f\n",aux2->line,aux2->column, aux2->info);
+                free(aux2);
+           }
+          // printf("\n");
+           aux = head;
+           head = head->below;
+           //aux = head->next;
        }
-       free((*m)->head);
-       printf("liberou %p\n",(*m)->head);
-    }
+       // printf("\n\n");
+}
 }
 
 
@@ -203,7 +201,7 @@ int matrix_setelem( Matrix** m, int x, int y, float elem )
 {
     int i;
     struct noM  *aux = (*m)->head, *head, *anter;
-    printf(" head des %p\n", (*m)->head);
+   // printf(" head des %p\n", (*m)->head);
     struct noM* n =  lista_createNo();
     //inserindo na lista da linha
     for(i = 0; i < x; i++)
@@ -230,6 +228,7 @@ int matrix_setelem( Matrix** m, int x, int y, float elem )
         {
             if((aux->column > y) || (aux->column == -1))
             {
+                  //printf("\ncoluna maior\n");
                   anter->next   = n;
                   n->next       = aux;
                   n->info       = elem;
@@ -237,17 +236,18 @@ int matrix_setelem( Matrix** m, int x, int y, float elem )
                   n->column     = y;
                   break;
             }
-            else
-            {
               anter = aux;
               aux   = aux->next;
-            }
         }
-        anter->next   = n;
-        n->next       = head;
-        n->info       = elem;
-        n->line       = x;
-        n->column     = y;
+        //printf("%p - %p\n",aux,head);
+        if(aux == head)
+        {
+              anter->next   = n;
+              n->next       = head;
+              n->info       = elem;
+              n->line       = x;
+              n->column     = y;
+        }
     }
     //inserindo na lista da coluna
     aux = (*m)->head;
@@ -272,21 +272,23 @@ int matrix_setelem( Matrix** m, int x, int y, float elem )
         {
             if((aux->line > x) || (aux->line == -1))
             {
+                  //printf("\nlinha maior\n");
                   anter->below   = n;
                   n->below       = aux;
                   break;
             }
-            else
-            {
               anter = aux;
               aux   = aux->below;
-            }
         }
-        anter->below   = n;
-        n->below       = head;
+        //printf("%p - %p\n",aux,head);
+        if(aux == head)
+        {
+              anter->below   = n;
+              n->below       = head;
+        }
     }
 
-    printf("x = %d, y = %d, Elem = %f\n",n->line,n->column,n->info);
+    //printf("x = %d, y = %d, Elem = %f\n",n->line,n->column,n->info);
 
     //lista_print(&m, 2, 2);
     return 0;
