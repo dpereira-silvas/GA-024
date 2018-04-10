@@ -2,29 +2,40 @@
 #include <stdlib.h>
 #include "Matrix.h"
 
-int main()
+int main(void)
 {
-    Matrix *A;
+    Matrix *A, *B, *C;
+    if( !matrix_create( &A ) )
+        matrix_print( A );
+    else
+    {
+        fprintf( stderr, "Erro na alocacao de A como listas encadeadas.\n" );
+        return 1;
+    }
+    if( !matrix_create( &B ) )
+        matrix_print( B );
+    else
+    {
+        fprintf( stderr, "Erro na alocacao de B como listas encadeadas.\n" );
+        return 1;
+    }
+    if ( !matrix_add( A, B, &C ) )
+        matrix_print( C );
+    else
+        fprintf( stderr, "Erro na soma C=A+B.\n" );
+    matrix_destroy( C );
+    if ( !matrix_multiply( A, B, &C ) )
+        matrix_print( C );
+    else
+        fprintf( stderr, "Erro na multiplicacao C=A*B.\n" );
+    matrix_destroy( C );
+    if ( !matrix_transpose( A, &C ) )
+        matrix_print( C );
+    else
+        fprintf( stderr, "Erro na transposicao C=A^T.\n" );
+    matrix_destroy( C );
 
-    //printf("A = %d\n",A);
-    int i = matrix_create( &A );
-
-//    printf("%d %d %d \n",A->head,A->tail_line,A->tail_column);
-
-    matrix_setelem( &A, 1, 2, 2);
-    matrix_setelem( &A, 1, 1, 1);
-    matrix_setelem( &A, 1, 3, 3);
-
-    matrix_setelem( &A, 2, 3, 6);
-    matrix_setelem( &A, 2, 1, 4);
-    matrix_setelem( &A, 2, 2, 5);
-
-    matrix_setelem( &A, 3, 1, 7);
-    matrix_setelem( &A, 3, 2, 8);
-    matrix_setelem( &A, 3, 3, 9);
-
-    lista_print(&A, 3, 3);
-    lista_destroy(&A, 3, 3);
-    free(A);
+    matrix_destroy( A );
+    matrix_destroy( B );
     return 0;
 }
